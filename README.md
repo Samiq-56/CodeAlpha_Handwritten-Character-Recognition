@@ -1,13 +1,13 @@
-# ✋ Handwritten Digit Recognition — CodeAlpha ML Internship
+# ✋ Handwritten Character Recognition — CodeAlpha ML Internship
 
-A CNN-based model that recognizes handwritten digits (0–9) using the MNIST dataset with **99% accuracy**.
+CNN-based model that recognizes handwritten digits (0–9) and letters (A–Z) using MNIST and EMNIST datasets.
 
 ---
 
 ## 📌 Task Info
 - **Internship:** CodeAlpha Machine Learning
 - **Task:** Task 3 — Handwritten Character Recognition
-- **Dataset:** MNIST (60,000 train / 10,000 test images)
+- **Datasets:** MNIST + EMNIST Letters
 
 ---
 
@@ -20,26 +20,29 @@ A CNN-based model that recognizes handwritten digits (0–9) using the MNIST dat
 | Conv2D + BatchNorm | 64 filters, 3×3 |
 | Conv2D + MaxPooling | 64 filters |
 | Dense + Dropout | 256 units |
-| Output (Softmax) | 10 classes |
+| Output (Softmax) | 10 / 26 classes |
 
 ---
 
 ## 📊 Results
 
-| Metric | Score |
-|--------|-------|
-| Test Accuracy | **99%** |
-| Precision | 0.99 |
-| Recall | 0.99 |
-| F1-Score | 0.99 |
+| Dataset | Classes | Accuracy |
+|---------|---------|----------|
+| MNIST (Digits) | 0–9 | **99.39%** |
+| EMNIST (Letters) | A–Z | **93.64%** |
 
 ---
 
 ## 🚀 How to Run
 
 ```bash
-pip install tensorflow numpy matplotlib scikit-learn seaborn pillow
-python train_model.py
+pip install tensorflow numpy matplotlib scikit-learn seaborn pillow tensorflow-datasets
+
+# Train digit recognition (MNIST)
+python train_mnist.py
+
+# Train letter recognition (EMNIST)
+python train_emnist.py
 ```
 
 ---
@@ -48,14 +51,14 @@ python train_model.py
 
 | File | Description |
 |------|-------------|
-| `train_model.py` | Model training |
+| `train_mnist.py` | MNIST digit model training |
+| `train_emnist.py` | EMNIST letter model training |
 | `predict.py` | Predict on custom image |
-| `saved_model/` | Saved trained model |
 
 ---
 
 ## 🛠 Tech Stack
-Python • TensorFlow • Keras • Scikit-learn • Matplotlib
+Python • TensorFlow • Keras • Scikit-learn • Matplotlib • TensorFlow Datasets
 
 ---
 
